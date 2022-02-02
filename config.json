@@ -1,0 +1,6 @@
+{
+    "port" : 42069,
+    "keyFile" : "./key.json",
+    "apiURL" : "http://ws.audioscrobbler.com/2.0?",
+    "streamInfoURL" : "https://radio.ngrok.io/status-json.xsl"
+}

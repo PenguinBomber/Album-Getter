@@ -3,6 +3,7 @@ const express = require('express');
 const fetch = require('cross-fetch');
 const convert = require('xml-js');
 const config = require('./config.json');
+const keyFile = require(config.keyFile);
 
 //set up the express app
 const app = express();
@@ -31,7 +32,7 @@ async function getAlbumnArt() {
 	//request for the album art
 	res = await fetch(config.apiURL + new URLSearchParams({
 		method : "track.getInfo",
-		api_key : config.apiKey,
+		api_key : keyFile.apiKey,
 		artist : npData[0],
 		track : npData[1]
 	}))
