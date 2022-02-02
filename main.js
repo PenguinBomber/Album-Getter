@@ -59,6 +59,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/art", (req, res) => {
+	//CORS header
+	res.header("Access-Control-Allow-Origin", "https://radio.mocrd.org");
 	//get the now playing track
 	getNowPlaying().then((np) => {
 		console.log(np);
