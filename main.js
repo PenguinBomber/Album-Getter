@@ -29,6 +29,7 @@ async function getAlbumnArt() {
 	//parse the nowPlaying string
 	npData = nowPlaying.split(" - ");
 	console.log(npData);
+
 	//request for the album art
 	res = await fetch(config.apiURL + new URLSearchParams({
 		method : "track.getInfo",
@@ -39,11 +40,13 @@ async function getAlbumnArt() {
 	//take the raw XML and turn it into JSON data
 	rawText = await res.text();
 	json = JSON.parse(convert.xml2json(rawText));
-
+	console.log(rawText);
+	
 	//yeah i don't even fucking know man
 	try {
 		artURL = json.elements[0].elements[0].elements[8].elements[7].elements[0].text;
 	} catch(err) {
+		artURL = "no art";
 		console.log(err);
 	}
 
