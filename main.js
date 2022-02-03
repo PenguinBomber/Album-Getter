@@ -10,6 +10,7 @@ const app = express();
 
 var nowPlaying = "null - null";
 var npArtURL = "";
+
 async function getNowPlaying() {
 	//fetch data from streamInfoURL
 	res = await fetch(config.streamInfoURL);
@@ -60,7 +61,7 @@ app.get("/", (req, res) => {
 
 app.get("/art", (req, res) => {
 	//CORS header
-	res.header("Access-Control-Allow-Origin", "https://radio.mocrd.org");
+	res.header("Access-Control-Allow-Origin", "*");
 	//get the now playing track
 	getNowPlaying().then((np) => {
 		console.log(np);
